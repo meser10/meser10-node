@@ -1,0 +1,34 @@
+# Runs the test suite on every push and pull request.
+#
+# Nothing here needs a key: every test uses a fake fetch, so no request leaves
+# the runner and no message is ever sent.
+
+name: Tests
+
+on:
+  push:
+    branches: ['main']
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        # 18 is the floor the package claims in engines. 22 is what most people
+        # will actually run it on.
+        node: ['18', '20', '22']
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+
+      - run: npm install
+      - run: npm test

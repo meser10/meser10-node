@@ -1,0 +1,46 @@
+{
+  "name": "@meser10/api-client",
+  "version": "1.0.0",
+  "description": "Node client for the Meser 10 JSON API: transactional SMS, transactional email and contacts. No dependencies.",
+  "keywords": ["sms", "email", "transactional", "otp", "israel", "hebrew", "meser10", "mailmonster"],
+  "homepage": "https://www.meser10.co.il/api-docs/",
+  "bugs": {
+    "url": "https://github.com/meser10/meser10-node/issues",
+    "email": "support@meser10.co.il"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meser10/meser10-node.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Meser 10 Ltd.",
+    "email": "support@meser10.co.il",
+    "url": "https://www.meser10.co.il"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": ["dist", "README.md", "LICENSE"],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "npm run build && node --test test/client.test.mjs",
+    "prepublishOnly": "npm run build && node --test test/client.test.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
