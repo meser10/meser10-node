@@ -70,10 +70,7 @@ try {
 }
 
 /*
- * One honest caveat worth knowing before you build a login on this.
- *
- * "Accepted for delivery" is as much as the gateway will tell you. There is no
- * per-message delivery status and no webhook, so you cannot confirm that the
- * code reached the handset. Design the user's screen for that: offer a resend
- * after a short wait, and a second route in, rather than assuming delivery.
+ * Worth having on any one-time-password screen: a resend after a short wait,
+ * and a second route in. The gateway sends no callbacks, so nothing will push
+ * an event to your code.
  */

@@ -110,11 +110,9 @@ Everything thrown extends `Meser10Error`, so one catch covers the lot. When you 
 
 The gateway's own messages arrive in Hebrew on most failures, so show your own wording to users and keep `.gatewayMessage` for the log.
 
-## What this gateway cannot tell you
+## Webhooks
 
-There is no per-message delivery status and no webhook. `MessageID` comes back as `0`. So "accepted for delivery" is as much as you get, and a one-time password cannot be confirmed as having reached the handset.
-
-Worth designing around rather than discovering later: offer a resend after a short wait, and a second route in, rather than assuming delivery.
+There are no webhooks on this gateway. Anything that has to react to an event polls for it.
 
 ## Bringing your own fetch
 
